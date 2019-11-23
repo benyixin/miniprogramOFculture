@@ -1,0 +1,58 @@
+/**myinfo.wxss**/
+.userinfo {
+    position: relative;
+    display: block;
+    border: none;
+    width: 100%;
+}
+
+.userinfo-avatar {
+    width: 128rpx;
+    height: 128rpx;
+    margin: 40rpx;
+    border-radius: 50%;
+}
+
+.userinfo-nickname {
+    position: absolute;
+    color: #666;
+    font-weight: bold;
+    top: 50rpx;
+}
+
+.address {
+    display: inline-block;
+    position: absolute;
+    top: 110rpx;
+    color: #444;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.gender {
+    display: inline-block;
+    position: absolute;
+    top: 50rpx;
+    left: 330rpx;
+}
+
+.gender-icon {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.icon {
+    display: inline-block;
+    width: 80rpx;
+    height: 80rpx;
+    margin-left: 15rpx;
+}
+
+.achievement {
+    display: inline-block;
+    position: absolute;
+    font-weight: bold;
+    color: #444;
+    font-size: 40rpx;
+    margin-left: 120rpx;
+}

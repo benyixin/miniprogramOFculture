@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/achievement/achievement",
+    "pages/info/myinfo",
     "pages/index/index",
     "pages/logs/logs"
   ],
