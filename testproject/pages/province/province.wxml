@@ -9,7 +9,7 @@
         <text class="head">译文：</text>
         <text class="translation">{{translation}}</text>
     </view>
-    <view class="box">
+    <view class="box" id="bottom-box">
         <text class="head">作者简介：</text>
         <text class="introduction">{{introduction}}</text>
     </view>

@@ -60,3 +60,7 @@
 .introduction {
     text-align: center;
 }
+
+#bottom-box {
+    margin-bottom: 80rpx;
+}
