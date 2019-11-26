@@ -10,8 +10,8 @@
                 <text>{{userInfo.country}}{{userInfo.province}}{{userInfo.city}}</text>
             </view>
             <view class="gender">
-                <image src="../../icon/male.png" wx:if="{{userInfo.gender == 1}}" class="gender-icon"></image>
-                <image src="../../icon/female.png" wx:if="{{userInfo.gender == 2}}" class="gender-icon"></image>
+                <image src="../../image/icon/male.png" wx:if="{{userInfo.gender == 1}}" class="gender-icon"></image>
+                <image src="../../image/icon/female.png" wx:if="{{userInfo.gender == 2}}" class="gender-icon"></image>
                 <text wx:else></text>
             </view>
         </view>
@@ -20,7 +20,7 @@
             <navigator url="../achievement/achievement" class="weui-cell weui-cell_example weui-cell_access"
                        hover-class="weui-cell_active">
                 <view class="icon">
-                    <image src="../../icon/achievement.png" class="icon"/>
+                    <image src="../../image/icon/achievement.png" class="icon"/>
                 </view>
                 <view class="achievement">
                     <view>已达成的成就</view>

@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/province/province",
+    "pages/map/map",
+    "pages/room/room",
     "pages/achievement/achievement",
     "pages/info/myinfo",
     "pages/index/index",

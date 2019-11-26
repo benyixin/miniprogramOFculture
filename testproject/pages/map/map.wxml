@@ -1,0 +1,36 @@
+<scroll-view scroll-x scroll-y class="grids-container">
+  <view class="map_box">
+    <a id="xj" href="#partner_xj" class="map_xj">新疆</a>
+    <a id="xz" href="#partner_xz" class="map_xz">西藏</a>
+    <a id="qh" href="#partner_qh" class="map_qh">青海</a>
+    <a id="gs" href="#partner_gs" class="map_gs">甘肃</a>
+    <a id="nmg" href="#partner_nmg" class="map_nmg map_nmg_on">内蒙古</a>
+    <a id="hlj" href="#partner_hlj" class="map_hlj">黑龙江</a>
+    <a id="jl" href="#partner_jl" class="map_jl">吉林</a>
+    <a id="ln" href="#partner_ln" class="map_ln">辽宁</a>
+    <a id="hb" href="#partner_hb" class="map_hb">河北</a>
+    <a id="bj" href="#partner_bj" class="map_bj">北京</a>
+    <a id="tj" href="#partner_tj" class="map_tj">天津</a>
+    <a id="yn" href="#partner_yn" class="map_yn">云南</a>
+    <a id="sc" href="#partner_sc" class="map_sc">四川</a>
+    <a id="gx" href="#partner_gx" class="map_gx">广西</a>
+    <a id="gd" href="#partner_gd" class="map_gd">广东</a>
+    <a id="jx" href="#partner_jx" class="map_jx">江西</a>
+    <a id="fj" href="#partner_fj" class="map_fj">福建</a>
+    <a id="hn" href="#partner_hn" class="map_hn">海南</a>
+    <a id="tw" href="#partner_tw" class="map_tw">台湾</a>
+    <a id="zj" href="#partner_zj" class="map_zj">浙江</a>
+    <a id="js" href="#partner_js" class="map_js">江苏</a>
+    <a id="sh" href="#partner_sh" class="map_sh">上海</a>
+    <a id="sd" href="#partner_sd" class="map_sd">山东</a>
+    <a id="gz" href="#partner_gz" class="map_gz">贵州</a>
+    <a id="hunan" href="#partner_hunan" class="map_hunan">湖南</a>
+    <a id="ah" href="#partner_ah" class="map_ah">安徽</a>
+    <a id="cq" href="#partner_cq" class="map_cq">重庆</a>
+    <a id="hubei" href="#partner_hubei" class="map_hubei">湖北</a>
+    <a id="henan" href="#partner_henan" class="map_henan">河南</a>
+    <a id="sx" href="#partner_sx" class="map_sx">山西</a>
+    <a id="sxi" href="#partner_sxi" class="map_sxi">陕西</a>
+    <a id="nx" href="#partner_nx" class="map_nx">宁夏</a>
+  </view>
+</scroll-view>

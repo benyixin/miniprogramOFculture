@@ -1,0 +1,3 @@
+<!--pages/province/province.wxml-->
+<text>{{poem_name}}</text>
+<text>{{poem_content}}</text>
