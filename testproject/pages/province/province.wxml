@@ -1,3 +1,16 @@
 <!--pages/province/province.wxml-->
-<text>{{poem_name}}</text>
-<text>{{poem_content}}</text>
+<view class="background">
+    <!--    <image src="../../images/background.jpg" class="img"></image>-->
+    <text class="province">{{province_name}}</text>
+    <text class="poem-name">{{poem_name}}</text>
+    <text class="author">{{author}}</text>
+    <text class="poem-content">{{poem_content}}</text>
+    <view class="box">
+        <text class="head">译文：</text>
+        <text class="translation">{{translation}}</text>
+    </view>
+    <view class="box">
+        <text class="head">作者简介：</text>
+        <text class="introduction">{{introduction}}</text>
+    </view>
+</view>

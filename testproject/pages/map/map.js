@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  pageNavi: function (e) {
+    wx.navigateTo({
+      url: '../province/province?name=' + e.currentTarget.id
+    })
   }
 })

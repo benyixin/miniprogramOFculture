@@ -1,1 +1,62 @@
 /* pages/province/province.wxss */
+.background {
+
+}
+
+.img {
+    width: 750rpx;
+    height: 1300rpx;
+    vertical-align: middle;
+    position: absolute;
+}
+
+.province {
+    font-size: 40rpx;
+    font-weight: bold;
+    display: block;
+    text-align: right;
+    margin-top: 30rpx;
+    padding-right: 100rpx;
+}
+
+.poem-name {
+    font-size: 45rpx;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: 20rpx;
+}
+
+.author {
+    font-size: 30rpx;
+    display: block;
+    text-align: center;
+    margin-top: 7rpx;
+}
+
+.poem-content {
+    font-size: 38rpx;
+    font-weight: 5500;
+    display: block;
+    text-align: center;
+}
+
+.head {
+    font-weight: 600;
+    font-size: 32rpx;
+
+}
+
+.box {
+    margin: 20rpx 40rpx 0 50rpx;
+}
+
+.translation {
+    text-align: center;
+    width: 650rpx;
+}
+
+
+.introduction {
+    text-align: center;
+}
