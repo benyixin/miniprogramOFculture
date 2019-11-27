@@ -20,8 +20,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let that = this;
-        let province = options.name;
+        let that = this
+        let province = options.name
         wx.request({
             url: getApp().globalData.url + '/api/get_poem',
             data: {
@@ -32,7 +32,7 @@ Page({
                 'content-type': 'application/json' //默认值
             },
             success: function (res) {
-                const data = res.data;
+                const data = res.data
                 if(res.data.status) {
                     that.setData({
                         province_name: data['name'],
@@ -44,11 +44,11 @@ Page({
                     });
                     // console.log(that.data.poem_name);
                 } else {
-                    console.log('sadad');
+                    console.log('sadad')
                 }
             },
             fail: function (res) {
-                console.log(res.state);
+                console.log(res.state)
             }
         })
     },

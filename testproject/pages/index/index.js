@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -43,12 +42,52 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+    // wx.request({
+    //   url: getApp().globalData.url + '/api/register_user',
+    //   data: app.globalData.userInfo,
+    //   method: 'POST',
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+    //   },
+    //   success: res => {
+    //     console.log('succeed!')
+    //   },
+    //   fail: error => {
+    //     console.log('fail!')
+    //   }
+    // })
+    wx.login({
+      success: data => {
+        console.log('获取登录 Code：' + data.code)
+        let postData = {
+          code: data.code
+        };
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code',
+          data: postData,
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+          },
+          success: res=> {
+            //回调处理
+            console.log('getOpenID-OK!');
+          },
+          fail: error => {
+            console.log(error);
+          }
+        })
+      },
+      fail: function() {
+        console('登录获取Code失败！');
+      }
     })
   }
 })

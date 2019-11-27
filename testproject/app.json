@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/map/map",
     "pages/room/room",
     "pages/province/province",
     "pages/achievement/achievement",
     "pages/info/myinfo",
-    "pages/index/index",
     "pages/logs/logs"
   ],
   "window": {
