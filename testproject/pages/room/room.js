@@ -1,84 +1,125 @@
-const app = getApp()
+const app_data = getApp().globalData
+let SocketTask = null
 
 Page({
-  data: {
-    avatarUrl: './user-unlogin.png',
-    userInfo: null,
-    logged: false,
-    takeSession: false,
-    requestResult: '',
-    // chatRoomEnvId: 'release-f8415a',
-    chatRoomCollection: 'chatroom',
-    chatRoomGroupId: 'cultrue',
-    chatRoomGroupName: '聊天室',
 
-    // functions for used in chatroom components
-    onGetUserInfo: null,
-    getOpenID: null,
-  },
-
-  onLoad: function() {
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo
-              })
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        focus: false,
+        inputValue: null,
+        content_list: [
+            {
+                user_id: null,
+                is_my: true,
+                content: '哈哈哈哈今天去哪里哈哈哈哈今天去哪里啊哈哈哈哈今天去哪里啊哈哈哈哈今天去哪里啊哈哈哈哈今天去哪里啊哈哈哈哈今天去哪里啊哈哈哈哈今天去哪里啊哈哈哈哈今天去哪里啊哈哈哈哈今天去哪里啊啊',
+                time: null
+            },
+            {
+                user_id: null,
+                is_my: false,
+                content: '我先去你家我先去你家的我先去你家的我先去你家的我先去你家的我先去你家的我先去你家的我先去你家的的',
+                time: null
             }
-          })
-        }
-      }
-    })
+        ],
+        my_avatar: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLWCFP2QI1x7JjuSoCgVEkyY6TGRnTpOUhibBfmqIn9mS5C3eDWvJ9OfU4iaooVQdAF0RVfK9OEbUkQ/132',
+        other_avatar: null
+    },
 
-    this.setData({
-      onGetUserInfo: this.onGetUserInfo,
-      getOpenID: this.getOpenID,
-    })
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.webSocket()
+    },
 
-    wx.getSystemInfo({
-      success: res => {
-        console.log('system info', res)
-        if (res.safeArea) {
-          const { top, bottom } = res.safeArea
-          this.setData({
-            containerStyle: `padding-top: ${(/ios/i.test(res.system) ? 10 : 20) + top}px; padding-bottom: ${20 + res.windowHeight - bottom}px`,
-          })
-        }
-      },
-    })
-  },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
 
-  getOpenID: async function() {
-    if (this.openid) {
-      return this.openid
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    },
+    webSocket: function () {
+        // 创建Socket
+        SocketTask = wx.connectSocket({
+            url: 'ws://localhost:8000' + app_data.chat_url + 'room/',
+            data: 'data',
+            header: {
+                'content-type': 'application/json'
+            },
+            method: 'POST',
+            success: function (res) {
+                console.log('WebSocket连接创建', res)
+            },
+            fail: function (err) {
+                wx.showToast({
+                    title: '网络异常！',
+                })
+                console.log(err)
+            },
+        })
+    },
+    submitTo: function () {
+        this.data.content_list.push({
+            user_id: app_data.userInfo['openid'],
+            is_my: true,
+            content: this.data.inputValue,
+            time: Date.parse(new Date()) / 1000
+        })
+        this.setData({
+            content_list: this.data.content_list,
+            inputValue: '',
+            focus: true,
+            scrollTop: 100000
+        })
+
+    },
+    bindKeyInput: function (e) {
+        this.setData({
+            inputValue: e.detail.value
+        })
     }
-
-    const { result } = await wx.cloud.callFunction({
-      name: 'login',
-    })
-
-    return result.openid
-  },
-
-  onGetUserInfo: function(e) {
-    if (!this.logged && e.detail.userInfo) {
-      this.setData({
-        logged: true,
-        avatarUrl: e.detail.userInfo.avatarUrl,
-        userInfo: e.detail.userInfo
-      })
-    }
-  },
-
-  onShareAppMessage() {
-    return {
-      title: '社区交谈',
-      path: '/pages/im/room/room',
-    }
-  },
 })

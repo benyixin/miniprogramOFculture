@@ -1,9 +1,104 @@
-.container {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding-bottom: 30rpx;
+page {
+    background-color: #f0f0f0;
+    height: 100%;
+}
+
+.history {
+    height: 90%;
+    width: 100%;
+    padding: 20rpx 20rpx 20rpx 20rpx;
+    font-size: 14px;
+    line-height: 50rpx;
+    word-break: break-all;
+}
+
+.my-message {
+    width: 85%;
+    margin-top: 20rpx;
+    float: right;
+}
+
+.right-avatar {
+    width:100rpx;
+    height: 100rpx;
+    margin-right: 60rpx;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    float: right;
+}
+
+.right-text{
+    max-width: 400rpx;
+    font-size: 28rpx;
+    border-radius: 7px;
+    background-color: #fff;
+    margin-top: 40rpx;
+    margin-right: 10rpx;
+    padding: 0rpx 30rpx 0rpx 30rpx;
+    display: inline-block;
+    float: right;
+}
+
+.your-message {
+    width: 80%;
+    margin-top: 40rpx;
+    float: left;
+}
+
+.left-avatar {
+    width:100rpx;
+    height: 100rpx;
+    margin-left: 20rpx;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    float: left;
+}
+
+.left-text {
+    max-width: 400rpx;
+    font-size: 28rpx;
+    border-radius: 7px;
+    background-color: #fff;
+    margin-top: 40rpx;
+    margin-left: 10rpx;
+    padding: 0rpx 30rpx 0rpx 30rpx;
+    display: inline-block;
+    float: left;
+}
+
+.sendmessage {
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    background-color: #F4F4F6;
+    flex-direction: row;
+    height: 85rpx;
+}
+
+.sendmessage input {
+    width: 75%;
+    height: 60rpx;
+    background-color: white;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    margin-top: 10rpx;
+    margin-left: 20rpx;
+    border: 1px solid #d0d0d0;
+    padding-left: 20rpx;
+}
+
+.sendmessage button {
+    border: 1px solid white;
+    width: 18%;
+    height: 65rpx;
+    background: #00CC00;
+    color: white;
+    line-height: 65rpx;
+    margin-top: 10rpx;
+    font-size: 28rpx;
 }

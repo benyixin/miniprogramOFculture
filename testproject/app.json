@@ -6,7 +6,8 @@
     "pages/province/province",
     "pages/achievement/achievement",
     "pages/info/myinfo",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/community/community"
   ],
   "window": {
     "backgroundTextStyle": "light",
