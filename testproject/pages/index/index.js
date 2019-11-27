@@ -51,7 +51,7 @@ Page({
     })
     // wx.request({
     //   url: getApp().globalData.url + '/api/register_user',
-    //   data: app.globalData.userInfo,
+    //   data: e.detail.userInfo,
     //   method: 'POST',
     //   header: {
     //     'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
