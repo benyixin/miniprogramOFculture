@@ -360,7 +360,7 @@
 .company_text{
     padding: 20px 0;
 }
-
-.company_info .company_detail{
-
+.blank {
+    height: 300rpx;
 }
+

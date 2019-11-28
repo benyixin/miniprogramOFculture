@@ -1,6 +1,5 @@
 page {
-    background-color: #f0f0f0;
-    height: 100%;
+    background-color: #f4f4f4;
 }
 
 .history {
@@ -16,6 +15,28 @@ page {
     width: 85%;
     margin-top: 20rpx;
     float: right;
+    position: relative;
+}
+
+.my-time {
+    margin-left: 150rpx;
+    display: block;
+    font-size: 26rpx;
+    color: gray;
+}
+
+.your-time {
+    margin-left: 265rpx;
+    display: block;
+    font-size: 26rpx;
+    color: gray;
+}
+
+.your-name {
+    font-size: 25rpx;
+    color: gray;
+    position: absolute;
+    left: 140rpx;
 }
 
 .right-avatar {
@@ -61,7 +82,7 @@ page {
     font-size: 28rpx;
     border-radius: 7px;
     background-color: #fff;
-    margin-top: 40rpx;
+    margin-top: 50rpx;
     margin-left: 10rpx;
     padding: 0rpx 30rpx 0rpx 30rpx;
     display: inline-block;
@@ -77,6 +98,7 @@ page {
     background-color: #F4F4F6;
     flex-direction: row;
     height: 85rpx;
+    padding-bottom: 20rpx;
 }
 
 .sendmessage input {

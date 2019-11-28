@@ -1,13 +1,14 @@
 {
   "pages": [
+    "pages/info/myinfo",
     "pages/index/index",
     "pages/room/room",
-    "pages/map/map",
+    "pages/community/community",
+    "pages/dynamic/dynamic",
     "pages/province/province",
+    "pages/map/map",
     "pages/achievement/achievement",
-    "pages/info/myinfo",
-    "pages/logs/logs",
-    "pages/community/community"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

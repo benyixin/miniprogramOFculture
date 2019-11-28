@@ -33,4 +33,7 @@
     <a id="shanxi" class="map_sxi" bindtap="pageNavi">陕西</a>
     <a id="ningxia" class="map_nx" bindtap="pageNavi">宁夏</a>
   </view>
+  <view class="blank">
+
+  </view>
 </scroll-view>

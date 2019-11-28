@@ -36,7 +36,6 @@ App({
   globalData: {
     userInfo: null,
     url: 'http://localhost:8000',
-    chat_url: '/ws/chat/',
-    push_url: '/ws/push/'
+    chat_url: '/ws/chat/'
   }
 })

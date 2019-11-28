@@ -1,11 +1,16 @@
+
+
 <scroll-view class="history" scroll-y="true" scroll-with-animation scroll-top="{{scrollTop}}">
 
     <block wx:for="{{content_list}}" wx:key="{{index}}">
         <view class="my-message" wx:if="{{item.is_my}}">
+            <text class="my-time">{{item.time}}</text>
             <image class="right-avatar" src="{{my_avatar}}"></image>
             <text class='right-text'>{{item.content}}</text>
         </view>
         <view class="your-message" wx:else>
+            <text class="your-time">{{item.time}}</text>
+            <text class="your-name">{{item.user_name}}</text>
             <image class="left-avatar" src="{{my_avatar}}"></image>
             <text class='left-text'>{{item.content}}</text>
         </view>

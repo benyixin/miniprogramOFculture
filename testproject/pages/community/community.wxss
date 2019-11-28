@@ -1,1 +1,96 @@
-/* pages/community/community.wxss */
+page {
+    background-color: #f0f0f0;
+    height: 100%;
+}
+
+.icon {
+    position: absolute;
+    left: 570rpx;
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.history {
+    height: 100%;
+    width: 100%;
+    padding: 20rpx 20rpx 20rpx 20rpx;
+    font-size: 14px;
+    line-height: 50rpx;
+    word-break: break-all;
+    position: relative;
+}
+
+.dynamic {
+    width: 80%;
+    margin-top: 50rpx;
+    margin-left: 50rpx;
+    margin-right: 40rpx;
+    background-color: #ffffff;
+}
+
+.user-box {
+    width: 100%;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+}
+
+.user-header {
+    display: block;
+    position: relative;
+    width: 80%;
+    max-width: 100%;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+}
+
+.name {
+    display: inline-block;
+    position: absolute;
+    font-size: 30rpx;
+    font-weight: 550;
+    margin-left: 30rpx;
+}
+
+.time {
+    display: inline-block;
+    position: absolute;
+    margin-left: 30rpx;
+    margin-top: 50rpx;
+    color: gray;
+}
+
+.avatar {
+    display: inline-block;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-box {
+    width: 100%;
+    margin-top: 10rpx;
+    display: inline-block;
+}
+
+.user-text {
+    font-size: 28rpx;
+    max-width: 550rpx;
+    margin-left: 30rpx;
+    float: left;
+}
+
+.img-box {
+    width: 100%;
+    margin-top: 10rpx;
+    display: inline-block;
+}
+
+.image {
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.no-border {
+    border: none;
+}
