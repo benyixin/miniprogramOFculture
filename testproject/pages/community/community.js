@@ -102,8 +102,11 @@ Page({
                 },
                 method: 'GET',
                 success: res => {
-                    const data = res.data
-                    let list = this.data.content_list.concat(data['data'])
+                    const data = res.data['data']
+                    data.forEach((item) => {
+                        item['time'] = that.time(item['time'])
+                    })
+                    let list = this.data.content_list.concat(data)
                     this.setData({
                         content_list: list
                     })
@@ -140,6 +143,13 @@ Page({
         let minute = date.getMinutes();
         minute = this.addZero(minute);
         return year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
+    },
+    addZero(number) {
+        if (number < 10) {
+            return '0' + number;
+        } else {
+            return number;
+        }
     },
     addDynamic() {
         wx.navigateTo({

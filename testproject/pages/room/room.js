@@ -174,4 +174,11 @@ Page({
         minute = this.addZero(minute);
         return month + '-' + day + ' ' + hour + ':' + minute;
     },
+    addZero(number) {
+        if (number < 10) {
+            return '0' + number;
+        } else {
+            return number;
+        }
+    }
 })

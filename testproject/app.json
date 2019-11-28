@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/community/community",
     "pages/info/myinfo",
     "pages/index/index",
     "pages/room/room",
-    "pages/community/community",
     "pages/dynamic/dynamic",
     "pages/province/province",
     "pages/map/map",
