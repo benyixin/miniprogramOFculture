@@ -92,5 +92,10 @@ Page({
           console.log('fail!')
         }
       })
+    },
+    toRoom: function () {
+        wx.navigateTo({
+            url: '../room/room'
+        })
     }
 })

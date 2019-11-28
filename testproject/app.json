@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/room/room",
     "pages/index/index",
+    "pages/room/room",
     "pages/map/map",
     "pages/province/province",
     "pages/achievement/achievement",

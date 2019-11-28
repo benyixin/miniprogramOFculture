@@ -38,7 +38,26 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        SocketTask.onOpen(res => {
+            console.log('监听 WebSocket 连接打开事件。', res)
+        })
+        SocketTask.onClose(onClose => {
+            console.log('监听 WebSocket 连接关闭事件。', onClose)
+            this.webSocket()
+        })
+        SocketTask.onError(onError => {
+            console.log('监听 WebSocket 错误。错误信息', onError)
+        })
+        SocketTask.onMessage(msg => {
+            console.log('监听WebSocket 接收信息。', JSON.parse(msg.data))
+            console.log(app_data.userInfo)
+            let data = JSON.parse(msg.data)
+            console.log(data['user_name'] === app_data.userInfo['nickName'])
+            if (data['user_name'] !== app_data.userInfo['nickName']) {
+                data.is_my = false
+                this.pushMessage(data, false)
+            }
+        })
     },
 
     /**
@@ -103,23 +122,42 @@ Page({
         })
     },
     submitTo: function () {
-        this.data.content_list.push({
+        let message = {
+            user_name: app_data.userInfo['nickName'],
             user_id: app_data.userInfo['openid'],
             is_my: true,
             content: this.data.inputValue,
             time: Date.parse(new Date()) / 1000
-        })
-        this.setData({
-            content_list: this.data.content_list,
-            inputValue: '',
-            focus: true,
-            scrollTop: 100000
-        })
-
+        }
+        this.pushMessage(message, true)
+        this.sendSocketMessage(message)
     },
     bindKeyInput: function (e) {
         this.setData({
             inputValue: e.detail.value
         })
+    },
+    sendSocketMessage: function (msg) {
+        SocketTask.send({
+            data: JSON.stringify(msg)
+        }, function (res) {
+            console.log('已发送', res)
+        })
+    },
+    pushMessage: function (msg, is_my) {
+        this.data.content_list.push(msg)
+        if (is_my) {
+            this.setData({
+                content_list: this.data.content_list,
+                inputValue: '',
+                focus: true,
+                scrollTop: 100000
+            })
+        } else {
+            this.setData({
+                content_list: this.data.content_list,
+                scrollTop: 100000
+            })
+        }
     }
 })
