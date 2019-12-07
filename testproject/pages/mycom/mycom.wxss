@@ -133,25 +133,3 @@ page {
     top: 90rpx;
     font-size: 32rpx;
 }
-
-.like {
-    float: right;
-    display: inline-block;
-    margin-right: 40rpx;
-}
-
-.comment {
-    float: right;
-    display: inline-block;
-    margin-right: 20rpx;
-}
-
-.icon-img {
-    width: 50rpx;
-    height: 50rpx;
-}
-
-.icon-text {
-    font-size: 24rpx;
-    color: gray;
-}

@@ -1,14 +1,16 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/comment/comment",
     "pages/community/community",
     "pages/info/myinfo",
-    "pages/index/index",
+    "pages/map/map",
     "pages/room/room",
     "pages/dynamic/dynamic",
     "pages/province/province",
-    "pages/map/map",
     "pages/achievement/achievement",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/mycom/mycom"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,4 +1,8 @@
 /**myinfo.wxss**/
+page {
+    background-color: #f0f0f0;
+}
+
 .userinfo {
     position: relative;
     display: block;
@@ -55,4 +59,63 @@
     color: #444;
     font-size: 40rpx;
     margin-left: 120rpx;
+}
+
+.blank {
+    height: 230rpx;
+}
+
+.fix-bottom {
+    position: fixed;
+    z-index: 500;
+    width: 750rpx;
+    background: white;
+    bottom: 0rpx;
+}
+
+.buy-button {
+    display: inline-block;
+    position: relative;
+    background: white;
+    vertical-align: middle;
+    width: 250rpx;
+    height: 150rpx;
+}
+
+.buy-button::after {
+    border: none;
+}
+
+.buy-image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.btn-text {
+    position: absolute;
+    right: 90rpx;
+    top: 90rpx;
+    font-size: 32rpx;
+}
+
+.btn-room {
+    display: inline-block;
+    width: 300rpx;
+    height: 100rpx;
+    margin-left: 250rpx;
+    background-color: aquamarine;
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+.btn-comm {
+    display: inline-block;
+    width: 300rpx;
+    height: 100rpx;
+    margin-left: 250rpx;
+    background-color: aquamarine;
+    font-weight: bold;
+    color: #e0e0e0;
 }

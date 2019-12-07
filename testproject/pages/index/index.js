@@ -20,7 +20,7 @@ Page({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
             })
-            wx.navigateTo({
+            wx.reLaunch({
                 url: '../map/map'
             })
         } else if (this.data.canIUse) {
@@ -31,13 +31,14 @@ Page({
                     userInfo: res.userInfo,
                     hasUserInfo: true
                 })
+                wx.reLaunch({
+                    url: '../map/map'
+                })
             }
-            wx.navigateTo({
-                url: '../map/map'
-            })
         } else {
             // 在没有 open-type=getUserInfo 版本的兼容处理
             wx.getUserInfo({
+                lang: "zh_CN",
                 success: res => {
                     app.globalData.userInfo = res.userInfo
                     this.setData({
@@ -46,7 +47,7 @@ Page({
                     })
                 }
             })
-            wx.navigateTo({
+            wx.reLaunch({
                 url: '../map/map'
             })
         }
@@ -103,12 +104,12 @@ Page({
       })
     },
     toRoom: function () {
-        wx.navigateTo({
+        wx.redirectTo({
             url: '../room/room'
         })
     },
     toComm:function () {
-        wx.navigateTo({
+        wx.redirectTo({
             url: '../community/community'
         })
     }

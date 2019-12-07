@@ -1,6 +1,7 @@
 // pages/community/community.js
 let page = 0
 let total_page = 1
+const app = getApp()
 const app_data = getApp().globalData
 
 Page({
@@ -41,7 +42,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
     },
 
     /**
@@ -55,7 +55,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        page = 0
+        total_page = 1
+        this.setData({
+            content_list: []
+        })
+        this.getData()
     },
 
     /**
@@ -83,6 +88,44 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
+        this.getData()
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    },
+    addDynamic() {
+        wx.navigateTo({
+            url: '../dynamic/dynamic'
+        })
+    },
+    goMap: function () {
+        if (!app_data.is_map) {
+            app.goMap()
+        }
+    },
+    goCommu: function () {
+        if (!app_data.is_commu)
+            app.goCommu()
+    },
+    goInfo: function () {
+        if (!app_data.is_info) {
+            app.goInfo()
+        }
+    },
+    comment: function(e) {
+        const id = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '../comment/comment?id=' + id
+        })
+    },
+    like: function(e) {
+        console.log(e.currentTarget.dataset.id)
+    },
+    getData: function () {
         let that = this;
         // 显示加载图标
         if (page + 1 > total_page) {
@@ -102,58 +145,32 @@ Page({
                 },
                 method: 'GET',
                 success: res => {
-                    const data = res.data['data']
-                    data.forEach((item) => {
-                        item['time'] = that.time(item['time'])
+                    const data = res.data
+                    data['data'].forEach((item) => {
+                        item['time'] = app.time(item['time'])
                     })
-                    let list = this.data.content_list.concat(data)
+                    console.log(data['data'])
+                    let list = this.data.content_list.concat(data['data'])
                     this.setData({
                         content_list: list
                     })
                     page += 1
                     total_page = data['total_page']
 
-                    console.log(this.data.content_list)
                     setTimeout(() => {
                         wx.hideLoading();
                     }, 100);
                 },
                 fail: res => {
-
+                    wx.showToast({
+                        title: '获取动态失败',
+                        mask: true
+                    })
                 }
             })
         }
     },
+    refreshData: function () {
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    },
-    time(timestamp) {
-        const date = new Date(timestamp * 1000);
-        const year = date.getFullYear();
-        let day = date.getDate();
-        day = this.addZero(day);
-        let month = date.getMonth() + 1;
-        month = this.addZero(month);
-        let hour = date.getHours();
-        hour = this.addZero(hour);
-        let minute = date.getMinutes();
-        minute = this.addZero(minute);
-        return year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
-    },
-    addZero(number) {
-        if (number < 10) {
-            return '0' + number;
-        } else {
-            return number;
-        }
-    },
-    addDynamic() {
-        wx.navigateTo({
-            url: '../dynamic/dynamic'
-        })
     }
 })

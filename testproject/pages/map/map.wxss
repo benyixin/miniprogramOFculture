@@ -357,10 +357,46 @@
     line-height: 30px;
     font-size: 14px;
 }
+
 .company_text{
     padding: 20px 0;
 }
+
 .blank {
-    height: 300rpx;
+    height: 230rpx;
 }
 
+.fix-bottom {
+    position: fixed;
+    z-index: 500;
+    width: 750rpx;
+    background: white;
+    bottom: 0rpx;
+}
+
+.buy-button {
+    display: inline-block;
+    position: relative;
+    background: white;
+    vertical-align: middle;
+    width: 250rpx;
+    height: 150rpx;
+}
+
+.buy-button::after {
+    border: none;
+}
+
+.buy-image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.btn-text {
+    position: absolute;
+    right: 90rpx;
+    top: 90rpx;
+    font-size: 32rpx;
+}

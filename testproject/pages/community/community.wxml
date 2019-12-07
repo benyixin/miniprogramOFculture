@@ -18,7 +18,32 @@
                         </view>
                     </block>
                 </view>
+                <view class="comment" bindtap="comment" data-id="{{item.id}}">
+                    <image src="../../images/icon/comment.png" class="icon-img" wx:if="true"></image>
+                    <text class="icon-text">{{item.comment_count}}</text>
+                </view>
+                <view class="like" bindtap="like" data-id="{{item.id}}">
+                    <image src="../../images/icon/like.png" class="icon-img" wx:if="true"></image>
+                    <image src="../../images/icon/liked.png" class="icon-img" wx:if="{{}}"></image>
+                    <text class="icon-text">{{item.like_count}}</text>
+                </view>
             </view>
         </block>
+    </view>
+    <view class="blank">
+        <view class="fix-bottom">
+            <button class="buy-button" bindtap="goMap">
+                <image src="../../images/icon/tabbar1.jpeg" class="buy-image"></image>
+                <text class="btn-text">首页</text>
+            </button>
+            <button class="buy-button" bindtap="goCommu">
+                <image src="../../images/icon/tabbar2.jpg" class="buy-image"></image>
+                <text class="btn-text">社区</text>
+            </button>
+            <button class="buy-button" bindtap="goInfo">
+                <image src="../../images/icon/tabbar3.jpg" class="buy-image"></image>
+                <text class="btn-text">我的</text>
+            </button>
+        </view>
     </view>
 </scroll-view>
