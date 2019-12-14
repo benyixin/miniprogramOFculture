@@ -44,7 +44,7 @@ App({
     goMap: function () {
         if (!this.globalData.is_map) {
             wx.redirectTo({
-                url: '../map/map'
+                url: '../index/index'
             })
             this.globalData.is_map = true
             this.globalData.is_commu = false

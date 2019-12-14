@@ -1,20 +1,20 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/comment/comment",
-    "pages/community/community",
-    "pages/info/myinfo",
-    "pages/map/map",
-    "pages/room/room",
-    "pages/dynamic/dynamic",
-    "pages/province/province",
     "pages/achievement/achievement",
+    "pages/info/myinfo",
+    "pages/community/community",
+    "pages/comment/comment",
+    "pages/dynamic/dynamic",
+    "pages/test/test",
+    "pages/room/room",
+    "pages/province/province",
     "pages/logs/logs",
     "pages/mycom/mycom"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FAFAE0",
+    "navigationBarBackgroundColor": "#fff5e1",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },

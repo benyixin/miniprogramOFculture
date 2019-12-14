@@ -1,6 +1,9 @@
 page {
-    background-color: #f0f0f0;
     height: 100%;
+    background-image: url('http://localhost:8000/media/common_back.jpg');
+    background-size: 800rpx 1400rpx;
+    background-position-x: -28rpx;
+    background-position-y: -50rpx;
 }
 
 .icon {
@@ -25,7 +28,7 @@ page {
     margin-top: 50rpx;
     margin-left: 50rpx;
     margin-right: 40rpx;
-    background-color: #ffffff;
+    background-color: rgba(255,245,225,0.2);
 }
 
 .user-box {
@@ -132,4 +135,5 @@ page {
     right: 90rpx;
     top: 90rpx;
     font-size: 32rpx;
+    font-family: '华文隶书';
 }

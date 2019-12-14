@@ -1,7 +1,4 @@
-
-
-<scroll-view class="history" scroll-y="true" scroll-with-animation scroll-top="{{scrollTop}}">
-
+<scroll-view class="history" id="all" scroll-y="true" scroll-with-animation scroll-top="{{scrollTop}}">
     <block wx:for="{{content_list}}" wx:key="{{index}}">
         <view class="my-message" wx:if="{{item.is_my}}">
             <text class="my-time">{{item.time}}</text>
@@ -17,9 +14,11 @@
     </block>
 </scroll-view>
 
-<view class="sendmessage">
-    <input type="text" bindinput="bindKeyInput" value='{{inputValue}}' focus='{{focus}}'
-           confirm-type="done" placeholder=""/>
-    <button bindtap="submitTo">发送</button>
+<view>
+    <view class="sendmessage">
+        <input type="text" bindinput="bindKeyInput" value='{{inputValue}}' focus='{{focus}}'
+               confirm-type="done" placeholder=""/>
+        <button bindtap="submitTo">发送</button>
+    </view>
 </view>
 

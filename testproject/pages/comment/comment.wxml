@@ -1,5 +1,5 @@
 <!--pages/comment/comment.wxml-->
-<scroll-view class="history" scroll-y="true" scroll-with-animation>
+<scroll-view class="history" id="all" scroll-y="true" scroll-with-animation>
     <view class="header">热门评论</view>
     <block wx:for="{{comment_list}}" wx:key="*this">
         <view class="comment-box" bindtap="keyBoard" data-reply="{{item.user}}">

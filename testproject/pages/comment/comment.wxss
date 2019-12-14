@@ -12,6 +12,7 @@ page {
     line-height: 50rpx;
     word-break: break-all;
     position: relative;
+    margin-bottom: 50rpx;
 }
 
 .header {

@@ -1,6 +1,6 @@
 <scroll-view class="history" scroll-y="true" scroll-with-animation>
     <view class="dynamic">
-        <block wx:for="{{content_list}}" wx:key="{{index}}">
+        <block wx:for="{{content_list}}" wx:for-index="idx" wx:key="*this">
             <view class="user-box">
                 <view class="user-header">
                     <image src="{{item.avatar}}" class="avatar"></image>
@@ -12,7 +12,7 @@
                 </view>
                 <view class="img-box">
                     <block wx:for="{{item.image}}" wx:key="*this">
-                        <view class="weui-grid no-border">
+                        <view class="weui-grid no-border" bindtap="preview" data-url="{{index}}" data-index="{{idx}}">
                             <image class="image" src="{{item}}"/>
                         </view>
                     </block>

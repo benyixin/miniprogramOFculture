@@ -116,14 +116,47 @@ Page({
             app.goInfo()
         }
     },
-    comment: function(e) {
+    comment: function (e) {
         const id = e.currentTarget.dataset.id
         wx.navigateTo({
             url: '../comment/comment?id=' + id
         })
     },
-    like: function(e) {
-        console.log(e.currentTarget.dataset.id)
+    like: function (e) {
+        let that = this
+        const id = e.currentTarget.dataset.id
+        const index = e.currentTarget.dataset.index
+        let like = this.data.content_list[index].like
+        wx.request({
+            url: app_data.url + '/api/dynamic_like',
+            data: {
+                user_id: app_data.userInfo['openid'],
+                dynamic_id: id
+            },
+            method: 'POST',
+            success: res => {
+                let list = that.data.content_list
+                list[index].like = !like
+                if (like) {
+                    list[index].like_count -= 1
+                } else {
+                    list[index].like_count += 1
+                    wx.showToast({
+                        title: '点赞成功',
+                        mask: true
+                    })
+                }
+                that.setData({
+                    content_list: list
+                })
+            },
+            fail: res => {
+                wx.showToast({
+                    title: '点赞失败 请重试',
+                    mask: true
+                })
+            }
+        })
     },
     getData: function () {
         let that = this;
@@ -141,7 +174,8 @@ Page({
             wx.request({
                 url: app_data.url + '/api/get_dynamics/',
                 data: {
-                    page: page
+                    page: page,
+                    my_id: app_data.userInfo['openid']
                 },
                 method: 'GET',
                 success: res => {
@@ -170,7 +204,14 @@ Page({
             })
         }
     },
-    refreshData: function () {
-
-    }
+    preview: function (e) {
+        let that = this
+        let url = e.currentTarget.dataset.url
+        let index = e.currentTarget.dataset.index
+        wx.previewImage({
+            //当前显示图片
+            current: that.data.content_list[index].image[url],
+            urls: that.data.content_list[index].image
+        })
+    },
 })

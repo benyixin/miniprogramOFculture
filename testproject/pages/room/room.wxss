@@ -9,6 +9,7 @@ page {
     font-size: 14px;
     line-height: 50rpx;
     word-break: break-all;
+    margin-bottom: 80rpx;
 }
 
 .my-message {

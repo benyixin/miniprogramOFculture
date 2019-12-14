@@ -1,40 +1,22 @@
 <!--pages/achievement/achievement.wxml-->
 <view class="page">
-    <view class="item_card" bindtap="kindToggle">
-        <text class="font">已通关的地点</text>
-        <view wx:if="{{gone_spots.done}}">
-            <image src="../../icon/accomplish.png" class="icon"></image>
-        </view>
-        <view wx:else>
-            <image src="../../icon/noaccomplish.png" class="icon"></image>
-        </view>
-    </view>
-
-    <view class="kind-list__item-bd {{gone_spots.open ? 'kind-list__item-bd_show' : ''}}">
-        <view class="weui-cells {{gone_spots.open ? 'weui-cells_show' : ''}}">
-            <block wx:for="{{gone_list}}" wx:key="id">
-                <view class="item_card">
-                    <text class="font">{{item.name}}</text>
-                    <view wx:if="{{item.done}}">
-                        <image src="../../icon/accomplish.png" class="icon"></image>
-                    </view>
-                    <view wx:else>
-                        <image src="../../icon/noaccomplish.png" class="icon"></image>
-                    </view>
-                </view>
+    <view style="background-color: white;" bindtap="kindToggle">
+        <view class="gone-font">{{gone_spots.name}}</view>
+        <view class="kind-list-item-bd {{open ? 'kind-list-item-bd-show' : ''}}">
+            <block wx:for="{{gone_list}}" wx:key="*this">
+                <view class="gone-name">{{item.province}}</view>
             </block>
         </view>
     </view>
 
-
     <block wx:for="{{list}}" wx:key="id" class="all_items">
         <view class="item_card">
             <text class="font">{{item.name}}</text>
-            <view wx:if="{{item.done}}">
-                <image src="../../icon/accomplish.png" class="icon"></image>
+            <view wx:if="{{item.achieved}}">
+                <image src="../../images/icon/accomplish.png" class="icon"></image>
             </view>
             <view wx:else>
-                <image src="../../icon/noaccomplish.png" class="icon"></image>
+                <image src="../../images/icon/noaccomplish.png" class="icon"></image>
             </view>
         </view>
     </block>

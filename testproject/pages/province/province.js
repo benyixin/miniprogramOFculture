@@ -1,4 +1,6 @@
 // pages/province/province.js
+let province = null
+
 Page({
 
     /**
@@ -21,7 +23,7 @@ Page({
      */
     onLoad: function (options) {
         let that = this
-        let province = options.name
+        province = options.name
         wx.request({
             url: getApp().globalData.url + '/api/get_poem',
             data: {
@@ -33,14 +35,14 @@ Page({
             },
             success: function (res) {
                 const data = res.data
-                if(res.data.status) {
+                if (res.data.status) {
                     that.setData({
                         province_name: data['name'],
-                        poem_name:data['poem_name'],
-                        author:data['author'],
-                        poem_content:data['poem_content'],
-                        translation:data['translation'],
-                        introduction:data['introduction']
+                        poem_name: data['poem_name'],
+                        author: data['author'],
+                        poem_content: data['poem_content'],
+                        translation: data['translation'],
+                        introduction: data['introduction']
                     });
                     // console.log(that.data.poem_name);
                 } else {
@@ -100,5 +102,11 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+
+    goTest: function () {
+        wx.navigateTo({
+            url: '../test/test?name=' + province
+        })
     }
 })

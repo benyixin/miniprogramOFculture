@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const app_data=app.globalData
 
 Page({
     data: {
@@ -20,9 +21,6 @@ Page({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
             })
-            wx.reLaunch({
-                url: '../map/map'
-            })
         } else if (this.data.canIUse) {
             // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
             // 所以此处加入 callback 以防止这种情况
@@ -30,9 +28,6 @@ Page({
                 this.setData({
                     userInfo: res.userInfo,
                     hasUserInfo: true
-                })
-                wx.reLaunch({
-                    url: '../map/map'
                 })
             }
         } else {
@@ -46,9 +41,6 @@ Page({
                         hasUserInfo: true
                     })
                 }
-            })
-            wx.reLaunch({
-                url: '../map/map'
             })
         }
     },
@@ -103,14 +95,24 @@ Page({
         }
       })
     },
-    toRoom: function () {
-        wx.redirectTo({
-            url: '../room/room'
+    pageNavi: function (e) {
+        console.log(e)
+        wx.navigateTo({
+            url: '../province/province?name=' + e.currentTarget.id
         })
     },
-    toComm:function () {
-        wx.redirectTo({
-            url: '../community/community'
-        })
+    goMap: function () {
+        if (!app_data.is_map) {
+            app.goMap()
+        }
+    },
+    goCommu: function () {
+        if (!app_data.is_commu)
+            app.goCommu()
+    },
+    goInfo: function () {
+        if (!app_data.is_info) {
+            app.goInfo()
+        }
     }
 })

@@ -13,4 +13,7 @@
         <text class="head">作者简介：</text>
         <text class="introduction">{{introduction}}</text>
     </view>
+    <view class="button-box">
+        <button class="weui-btn btn" bindtap="goTest">开始测试</button>
+    </view>
 </view>

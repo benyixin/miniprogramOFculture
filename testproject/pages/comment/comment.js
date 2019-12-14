@@ -8,7 +8,7 @@ Page({
      */
     data: {
         id: null,
-        focus: false,
+        focus: true,
         reply: null,
         inputValue: null,
         comment_list: [
@@ -118,24 +118,22 @@ Page({
                 'content-type': 'application/json' //默认值
             },
             success: res => {
-                let list = that.data.comment_list.concat([{
-                    user: app_data.userInfo['nickName'],
-                    avatar: app_data.userInfo['avatar'],
-                    text: that.data.inputValue,
-                    reply: that.data.reply,
-                    time: app.time(Date.now() / 1000)
-                }])
-                this.setData({
+                that.setData({
                     inputValue: null,
-                    reply: null,
-                    focus: null,
-                    comment_list: list
+                    reply: null
                 })
+                this.getData()
             },
             fail: res => {
                 console.log(res.data)
             }
         })
+        wx.createSelectorQuery().select('#all').boundingClientRect(function(rect){
+            // 使页面滚动到底部
+            wx.pageScrollTo({
+                scrollTop: rect.bottom
+            })
+        }).exec()
     },
     getData: function () {
         const id = this.data.id
@@ -150,7 +148,7 @@ Page({
                 data['data'].forEach((item) => {
                     item['time'] = app.time(item['time'])
                 })
-                let list = this.data.comment_list.concat(data['data'])
+                let list = data['data']
                 console.log(list)
                 this.setData({
                     comment_list: list

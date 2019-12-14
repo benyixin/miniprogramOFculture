@@ -18,16 +18,16 @@
         <view class="weui-uploader__hd">
             <view class="weui-uploader__overview">
                 <view class="weui-uploader__title">图片上传</view>
-                <view class="weui-uploader__info">{{files.length}}/2</view>
+                <view class="weui-uploader__info">已选中{{imgs.length}}</view>
             </view>
             <view class="weui-uploader__tips">
                 上传提示
             </view>
         </view>
         <view class="weui-uploader__bd">
-            <view class="weui-uploader__files" id="uploaderFiles">
-                <block wx:for="{{files}}" wx:key="*this">
-                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+            <view class="weui-uploader__files" style="margin-left: 30rpx" id="uploaderFiles">
+                <block wx:for="{{imgs}}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" data-index="{{index}}" id="{{item}}">
                         <image class="weui-uploader__img" src="{{item}}" mode="aspectFill"/>
                     </view>
                 </block>

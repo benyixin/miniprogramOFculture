@@ -1,8 +1,8 @@
 /* pages/dynamic/dynamic.wxss */
 .dynamic {
-    width: 80%;
+    width: 90%;
     margin-top: 50rpx;
-    padding-left: 50rpx;
+    padding-left: 40rpx;
     margin-right: 40rpx;
     background-color: #fdfdfd;
 }

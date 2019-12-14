@@ -1,78 +1,77 @@
 // pages/achievement/achievement.js
+const app = getApp()
+const app_data = app.globalData
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        open: false,
         gone_spots: {
             open: false,
-            id:'gone_spots',
-            name:'已通关的地点',
+            name: '已通关的地点',
             done: false,
         },
-        gone_list:[
-            {
-                id: 'dongbei',
-                name: '东北地区',
-                done: false
-            },
-            {
-                id: 'huazhong',
-                name: '华中地区',
-                done: false
-            },
-            {
-                id: 'huadong',
-                name: '华东地区',
-                done: false
-            },
-            {
-                id: 'huanan',
-                name: '华南地区',
-                done: false
-            },
-            {
-                id: 'huabei',
-                name: '华北地区',
-                done: false
-            },
-            {
-                id: 'xinan',
-                name: '西南地区',
-                done: false
-            },
-            {
-                id: 'xibei',
-                name: '西北地区',
-                done: false
-            }
-        ],
+        gone_list: [],
+        achievement_list: [],
         list: [
             {
-                id: 'firstSpot',
                 name: '首次完成',
                 done: false
             },
             {
-                id: 'firstFile',
-                name: '初次上传',
-                done: false
-            },
-            {
-                id: 'firstFriend',
-                name: '初次交友',
-                done: false
-            },
-            {
-                id: 'poemKing',
                 name: '诗词之王',
                 done: true
             }
         ]
     },
+    onLoad: function (options) {
+        let that = this
+        wx.request({
+            url: app_data.url + '/api/get_achievement',
+            data: {
+                user_id: app_data.userInfo['openid']
+            },
+            method: 'GET',
+            header: {
+                'content-type': 'application/json' //默认值
+            },
+            success: function (res) {
+                const data = res.data
+                that.setData({
+                    achievement_list: data['data']
+                })
+            },
+            fail: function (res) {
+                console.log(res.data)
+            }
+        })
+        wx.request({
+            url: app_data.url + '/api/get_gone',
+            data: {
+                user_id: app_data.userInfo['openid']
+            },
+            method: 'GET',
+            header: {
+                'content-type': 'application/json' //默认值
+            },
+            success: function (res) {
+                const data = res.data
+                that.setData({
+                    gone_list: data['data']
+                })
+            },
+            fail: function (res) {
+                console.log(res.data)
+            }
+        })
+    },
     kindToggle(e) {
-        const id = e.currentTarget.id
-        this.data.gone_spots.open = !this.data.gone_spots.open
+        const status = this.data.open
+        this.setData({
+            open: !status
+        })
     }
 })

@@ -24,7 +24,8 @@ Page({
             }
         ],
         my_avatar: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLWCFP2QI1x7JjuSoCgVEkyY6TGRnTpOUhibBfmqIn9mS5C3eDWvJ9OfU4iaooVQdAF0RVfK9OEbUkQ/132',
-        other_avatar: null
+        other_avatar: null,
+        scrollTop: 0
     },
 
     /**
@@ -131,6 +132,12 @@ Page({
         }
         this.pushMessage(message, true)
         this.sendSocketMessage(message)
+        wx.createSelectorQuery().select('#all').boundingClientRect(function(rect){
+            // 使页面滚动到底部
+            wx.pageScrollTo({
+                scrollTop: rect.bottom
+            })
+        }).exec()
     },
     bindKeyInput: function (e) {
         this.setData({
@@ -151,13 +158,11 @@ Page({
             this.setData({
                 content_list: this.data.content_list,
                 inputValue: '',
-                focus: true,
-                scrollTop: 100000
+                focus: true
             })
         } else {
             this.setData({
-                content_list: this.data.content_list,
-                scrollTop: 100000
+                content_list: this.data.content_list
             })
         }
     },
