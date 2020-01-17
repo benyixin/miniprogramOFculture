@@ -1,31 +1,45 @@
 <view class="page" xmlns:wx="http://www.w3.org/1999/XSL/Transform">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">
-        获取头像昵称
-    </button>
-    <block wx:else>
-        <view class="userinfo">
-            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-            <view class="address">
-                <text>{{userInfo.country}}{{userInfo.province}}{{userInfo.city}}</text>
-            </view>
-            <view class="gender">
-                <image src="../../icon/male.png" wx:if="{{userInfo.gender == 1}}" class="gender-icon"></image>
-                <image src="../../icon/female.png" wx:if="{{userInfo.gender == 2}}" class="gender-icon"></image>
-                <text wx:else></text>
-            </view>
+    <view class="userinfo">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <view class="address">
+            <text>{{userInfo.country}}{{userInfo.province}}{{userInfo.city}}</text>
         </view>
+        <view class="gender">
+            <image src="../../images/icon/male.png" wx:if="{{userInfo.gender == 1}}" class="gender-icon"></image>
+            <image src="../../images/icon/female.png" wx:if="{{userInfo.gender == 2}}" class="gender-icon"></image>
+            <text wx:else></text>
+        </view>
+    </view>
 
-        <view class="weui-panel__bd">
-            <navigator url="../achievement/achievement" class="weui-cell weui-cell_example weui-cell_access"
-                       hover-class="weui-cell_active">
-                <view class="icon">
-                    <image src="../../icon/achievement.png" class="icon"/>
-                </view>
-                <view class="achievement">
-                    <view>已达成的成就</view>
-                </view>
-            </navigator>
+    <view class="weui-panel__bd">
+        <navigator url="../achievement/achievement" class="weui-cell weui-cell_example weui-cell_access"
+                   hover-class="weui-cell_active">
+            <view class="icon">
+                <image src="../../images/icon/achievement.png" class="icon"/>
+            </view>
+            <view class="achievement">
+                <view>已达成的成就</view>
+            </view>
+        </navigator>
+    </view>
+    <button class="weui-btn btn-room" bindtap="goRoom">聊天室</button>
+    <button class="weui-btn btn-comm" bindtap="goComm">我的动态</button>
+
+    <view class="blank">
+        <view class="fix-bottom">
+            <button class="buy-button" bindtap="goMap">
+                <image src="../../images/icon/tabbar1.jpeg" class="buy-image"></image>
+                <text class="btn-text">首页</text>
+            </button>
+            <button class="buy-button" bindtap="goCommu">
+                <image src="../../images/icon/tabbar2.jpg" class="buy-image"></image>
+                <text class="btn-text">社区</text>
+            </button>
+            <button class="buy-button" bindtap="goInfo">
+                <image src="../../images/icon/tabbar3.jpg" class="buy-image"></image>
+                <text class="btn-text">我的</text>
+            </button>
         </view>
-    </block>
+    </view>
 </view>

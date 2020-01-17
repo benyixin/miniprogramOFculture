@@ -1,13 +1,20 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/achievement/achievement",
     "pages/info/myinfo",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/community/community",
+    "pages/comment/comment",
+    "pages/dynamic/dynamic",
+    "pages/test/test",
+    "pages/room/room",
+    "pages/province/province",
+    "pages/logs/logs",
+    "pages/mycom/mycom"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#fff5e1",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },

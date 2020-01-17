@@ -1,0 +1,75 @@
+/* pages/province/province.wxss */
+.background {
+    background-image: url('http://localhost:8000/media/common_back.jpg');
+    background-size: 750rpx 1800rpx;
+}
+
+.img {
+    width: 750rpx;
+    height: 1300rpx;
+    vertical-align: middle;
+    position: absolute;
+}
+
+.province {
+    font-size: 40rpx;
+    font-weight: bold;
+    display: block;
+    text-align: right;
+    padding-top: 100rpx;
+    padding-right: 80rpx;
+}
+
+.poem-name {
+    font-size: 45rpx;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: 20rpx;
+    font-family: '黑体';
+}
+
+.author {
+    font-size: 30rpx;
+    display: block;
+    text-align: center;
+    margin-top: 7rpx;
+    font-family: '仿宋';
+}
+
+.poem-content {
+    font-size: 36rpx;
+    font-family: '黑体';
+    display: block;
+    text-align: center;
+}
+
+.head {
+    font-weight: 600;
+    font-size: 32rpx;
+
+}
+
+.box {
+    margin: 20rpx 75rpx 0 85rpx;
+}
+
+.translation {
+    text-align: center;
+    width: 650rpx;
+    font-family: '楷体';
+}
+
+
+.introduction {
+    text-align: center;
+    font-family: '楷体';
+}
+
+#bottom-box {
+    margin-bottom: 80rpx;
+}
+
+.btn {
+    background-color: antiquewhite;
+}

@@ -1,5 +1,12 @@
 /**myinfo.wxss**/
+page {
+    background-image: url('http://localhost:8000/media/common_back.jpg');
+    background-size: 800rpx 1400rpx;
+    background-position-x: -28rpx;
+}
+
 .userinfo {
+    margin-top: 75rpx;
     position: relative;
     display: block;
     border: none;
@@ -55,4 +62,73 @@
     color: #444;
     font-size: 40rpx;
     margin-left: 120rpx;
+}
+
+.blank {
+    height: 230rpx;
+}
+
+.fix-bottom {
+    position: fixed;
+    z-index: 500;
+    width: 750rpx;
+    background: white;
+    bottom: 0rpx;
+}
+
+.buy-button {
+    display: inline-block;
+    position: relative;
+    background: white;
+    vertical-align: middle;
+    width: 250rpx;
+    height: 150rpx;
+}
+
+.buy-button::after {
+    border: none;
+}
+
+.buy-image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.btn-text {
+    position: absolute;
+    right: 90rpx;
+    top: 90rpx;
+    font-size: 32rpx;
+    font-family: '华文隶书';
+}
+
+.btn-room {
+    display: inline-block;
+    width: 300rpx;
+    height: 100rpx;
+    margin-left: 250rpx;
+    font-weight: bold;
+    color: #444;
+    background-color: rgb(242,240,228);
+}
+
+.btn-room:after {
+    border: none;
+}
+
+.btn-comm {
+    display: inline-block;
+    width: 300rpx;
+    height: 100rpx;
+    margin-left: 250rpx;
+    font-weight: bold;
+    border: none;
+    color: #444;
+    background-color: rgb(242,240,228);
+}
+
+.btn-comm:after {
+    border: none;
 }
